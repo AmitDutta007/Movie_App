@@ -18,7 +18,7 @@ const RouteComponent = () => {
                     <Route path='/movies' element={<Movies />} />
                     <Route path='/search' element={<Search />} />
                     <Route path='/series' element={<TvSeries />} />
-                    <Route path='/details/:movieid/:mediatype' element={<Details />} />
+                    <Route path='/details/:id/:mediatype/:title' element={<Details />} />
                 </Routes>
                 <Footer/>
             </BrowserRouter>

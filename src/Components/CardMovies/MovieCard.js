@@ -1,24 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
+// import Card from 'react-bootstrap/Card';
 import { img_300, img_not_available } from "../../config"
 
 const MovieCard = ({ data }) => {
 
-
+    
     const title = data.original_title || data.name;
     const id = data.id;
-    const ImageURL = data.poster_path ? img_300 + data.poster_path : img_not_available;
+    const ImageURL = data.poster_path 
+    ? img_300 + data.poster_path : img_not_available;
     const media_type = data.media_type 
     // ? data.media_type : data.type ? data.type : mediaType;
     const release_date = data.release_date || data.first_air_date;
     const vote_average = parseInt(data.vote_average);
-    const original_language = data.original_language || ''
+    const original_language = data.original_language 
+    // || ''
 
     return (
         <>
             <div className='col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6'>
-                <Link to={`/details/${id}/${media_type}`} className='video-thumb'>
+                <Link to={`/details/${id}/${media_type}/${title}`} className='video-thumb'>
                     <figure className="video-image">
                         <span>
                             <img src={ImageURL} alt={title} />
