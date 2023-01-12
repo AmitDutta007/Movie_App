@@ -4,7 +4,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
 import MovieCard from '../../Components/CardMovies/MovieCard';
-// import PaginationComponent from '../../Components/Pagination';
+import Loader from '../../Components/Loader/Loader';
+import PaginationComponent from '../../Components/Pagination/index';
 
 const  Home = ()=>{
     const [content, setContent] = useState([]);
@@ -24,16 +25,16 @@ const  Home = ()=>{
         console.log('Trending Component did mount');
         GetDataTrending();
         //eslint-disable-next-line
-    }, [])
+    }, [pageno])
 
     const handleClick = (number)=>{
         setPageno(number);
     }
-    useEffect(()=>{
-        console.log('Trending Component didupdate mount');
-        GetDataTrending();
-        //eslint-disable-next-line
-    }, [pageno])
+    // useEffect(()=>{
+    //     console.log('Trending Component didupdate mount');
+    //     GetDataTrending();
+    //     //eslint-disable-next-line
+    // }, [])
     return (
         <main className='homePage'>
             <Container>
@@ -47,12 +48,12 @@ const  Home = ()=>{
                     {
                         content && content.length > 0 ? content.map((item, index)=>{
                             return (<MovieCard key={index} data={item} />)
-                        }) : 'Loading ....'
+                        }) : <Loader/>
                     }
 
-                {/* {
-                    paginationno && paginationno > 1 ? <PaginationComponent maxnum={paginationno} activenum={pageno} handleClick={handleClick}/> : ''
-                } */}
+                    {
+                        paginationno && paginationno > 1 ? <PaginationComponent maxnum={paginationno} activenum={pageno} handleClick={handleClick}/> : ''
+                    }
                     
                 </Row>
             </Container>

@@ -1,6 +1,12 @@
 /*==============================
 	Card
 ==============================*/
+@media(max-width:767.98px){
+  iframe{
+    width:100%
+  }
+}
+
 ul, ul li{
     list-style-type: none;
     padding: 0;
@@ -242,6 +248,8 @@ ul, ul li{
     color: #ff5860;
     margin-right: 7px;
     opacity: 0.8;
+    display: flex;
+    flex-wrap: wrap;
   }
   .card--details .card__meta .linkTag:after {
     content: ',';
