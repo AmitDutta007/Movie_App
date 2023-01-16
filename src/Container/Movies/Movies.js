@@ -8,6 +8,7 @@ import PaginationComponent from '../../Components/Pagination';
 import "./movie.css"
 import LeftListBarComponent from '../../Components/LeftSidebar/index';
 import useGenres from '../../Hooks/useGenres';
+import Loader from "../../Components/Loader/Loader"
 
 const  Movies = ()=>{
     const [content, setContent] = useState([]);
@@ -29,7 +30,7 @@ const  Movies = ()=>{
     }
 
     useEffect(()=>{
-        console.log('Trending Component did mount');
+        // console.log('Trending Component did mount');
         GetDataTrending();
         //eslint-disable-next-line
     }, [])
@@ -43,7 +44,7 @@ const  Movies = ()=>{
         setPageno(number);
     }
     useEffect(()=>{
-        console.log('Trending Component didupdate mount');
+        // console.log('Trending Component didupdate mount');
         GetDataTrending();
         //eslint-disable-next-line
     }, [pageno])
@@ -67,7 +68,7 @@ const  Movies = ()=>{
                                 {
                                     content && content.length > 0 ? content.map((item, index)=>{
                                         return (<CardMoviesComponents key={index} data={item} mediaType="movie"/>)
-                                    }) : ''
+                                    }) : <Loader/>
                                 }
 
                             {

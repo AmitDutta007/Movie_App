@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // import Card from 'react-bootstrap/Card';
 import { img_300, img_not_available } from "../../config"
 
-const MovieCard = ({ data }) => {
+const MovieCard = ({ data , mediaType}) => {
 
     
     const title = data.original_title || data.name;
@@ -11,7 +11,7 @@ const MovieCard = ({ data }) => {
     const ImageURL = data.poster_path 
     ? img_300 + data.poster_path : img_not_available;
     const media_type = data.media_type 
-    // ? data.media_type : data.type ? data.type : mediaType;
+    ? data.media_type : data.type ? data.type : mediaType;
     const release_date = data.release_date || data.first_air_date;
     const vote_average = parseInt(data.vote_average);
     const original_language = data.original_language 

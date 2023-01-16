@@ -71,7 +71,7 @@ const LeftListBarComponent = (
                                 {item.name}
                             </ListGroup.Item>
                         )
-                    }) : <Loader/>
+                    }) : ''
                 }
             </ListGroup>
         </aside>

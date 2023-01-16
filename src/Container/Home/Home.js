@@ -18,11 +18,11 @@ const  Home = ()=>{
         const {data} = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&page=${pageno}`)
         setContent(data.results);
         setPaginationno(data.total_pages);
-        console.log(data)
+        // console.log(data)
     }
 
     useEffect(()=>{
-        console.log('Trending Component did mount');
+        // console.log('Trending Component did mount');
         GetDataTrending();
         //eslint-disable-next-line
     }, [pageno])
